@@ -4,6 +4,7 @@ pragma solidity ^0.8.31;
 import {FundMe} from "../src/FundMe.sol";
 import {Script} from "forge-std/Script.sol";
 import {HelperConfig} from "./HelperConfig.s.sol";
+import {console} from "forge-std/console.sol";
 
 contract DeployFundMeScript is Script {
     function run() external returns (FundMe) {
@@ -15,6 +16,7 @@ contract DeployFundMeScript is Script {
         vm.startBroadcast();
         FundMe fundMe = new FundMe(activePriceFeed);
         vm.stopBroadcast();
+
         return fundMe;
     }
 }
